@@ -2,28 +2,59 @@
 {% block title %}Home{% endblock title %}
 {% load static %}
 {% block content %}
-    <div class="titlebox">
+    <!-- Banner区域，占据页面上半部分 -->
+    <div class="banner">
         <strong>
             <h1> 红石工艺（Redstone Craft） </h1>
             <h3> 轻量 纯净 国创 养老 原版 </h3>
         </strong>
     </div>
-    
-        
+
+    <!-- Grid布局内容 -->
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="text-center py-3">
+                    <h3>轻量</h3>
+                    <p>我们坚持以最少的mod和材质包，换来更好的游戏体验。</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="text-center py-3">
+                    <h3>简洁</h3>
+                    <p>我们不想让一个整合包玩起来很麻烦。<br>我们争取让这个整合包在使用上更简单，易入手。</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="text-center py-3">
+                    <h3>单人</h3>
+                    <p>就如这个词所说...这个材质包更适合单人游玩！<br>当然，多人游玩也应该毫无问题。<br>（⚠注意：多人游戏中，Tweakeroo模组和X-Ray透视矿材质包慎用，因为有几率会被服务器ban！）</p>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock content %}
+
 {% block extra_css%}
 <style>
-    .titlebox {
-        position: absolute;
-        top: 30%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        text-align: center;
-        color: white;
+    /* 自定义Banner样式 */
+    .banner {
         background-color: #2e8555;
-        width: 100%;
-        padding: 82px;
+        color: white;
+        text-align: center;
+        padding: 100px 0;
+        border-radius: 10px;
+    }
+
+    /* 标题区域样式 */
+    .titlebox {
+        padding: 0px;
         font-weight: bold;
     }
 </style>
 {% endblock extra_css%}
+{% block extra_js %}
+    <script>
+        document.getElementById('home').classList.add('active');
+    </script>
+{% endblock extra_js %}

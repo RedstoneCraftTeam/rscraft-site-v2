@@ -32,3 +32,8 @@
         {% endif %}
     </div>
 {% endblock content %}
+{% block extra_js %}
+    <script>
+        document.getElementById('download').classList.add('active');
+    </script>
+{% endblock extra_js %}
