@@ -10,6 +10,8 @@ def get_release_info():
     Version.objects.all().delete()
 
     for release in data:
+        # Add \n at the end of each line in the description
+        release['body'] = release['body'].replace('\r\n', '\\n ')
         # Create or update the release object
         Version.objects.create(
             tag=release['tag_name'],

@@ -12,6 +12,8 @@ def releases(request):
             backup_time=time.localtime()
         )
     versions = Version.objects.all()
+    for ver in versions:
+        ver.description = ver.get_description()
     return render(request, 'download/releases.html', {'versions': versions})
 
 def release(request, tag):

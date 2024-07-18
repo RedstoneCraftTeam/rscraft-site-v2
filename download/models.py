@@ -13,5 +13,8 @@ class Version(models.Model):
     def __str__(self):
         return self.tag + " - " + self.title
     
+    def get_description(self):
+        return self.description[:100].replace("\\n", " ") + "..."
+    
 class Backup(models.Model):
     backup_time = models.DateTimeField(auto_now_add=True)
