@@ -4,7 +4,7 @@
 <h1> {{target_ver.tag}} {{target_ver.title}}</h1>
 <hr />
 <div id="content"></div>
-{% if target_ver.description %}
+    {% if target_ver.description %}
     <script>
         document.getElementById('content').innerHTML =
         marked.parse('{{ target_ver.description }}', {breaks: true});
@@ -57,5 +57,5 @@
 </style>
 {% endblock extra_css %}
 {% block extra_js %}
-<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/marked/13.0.2/marked.min.js"></script>
 {% endblock extra_js %}
