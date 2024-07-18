@@ -1,0 +1,30 @@
+{% extends "main/base.html" %}
+{% block title %}Home{% endblock title %}
+{% load static %}
+{% block content %}
+    <div class="titlebox">
+        <strong>
+            <h1> 红石工艺（Redstone Craft） </h1>
+            <h3> 轻量 纯净 国创 养老 原版 </h3>
+        </strong>
+    </div>
+    
+        
+{% endblock content %}
+{% block extra_css%}
+<style>
+    .titlebox {
+        position: absolute;
+        top: 30%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        color: white;
+        background-color: #2e8555;
+        width: 100%;
+        height: 45%;
+        padding: 100px;
+        font-weight: bold;
+    }
+</style>
+{% endblock extra_css%}
