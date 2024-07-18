@@ -5,15 +5,15 @@
 <hr />
 <div id="content"></div>
     {% if target_ver.description %}
-    <script>
-        document.getElementById('content').innerHTML =
-        marked.parse('{{ target_ver.description }}', {breaks: true});
-    </script>
-{% else %}
-    <div class="alert alert-warning" role="alert">
-        No description available.
-    </div>
-{% endif %}
+        <script>
+            document.getElementById('content').innerHTML =
+            marked.parse('{{ target_ver.description }}', {breaks: true});
+        </script>
+    {% else %}
+        <div class="alert alert-warning" role="alert">
+            No description available.
+        </div>
+    {% endif %}
 <hr />
 {% if target_ver.github_release %}
 <a href="{{ target_ver.github_release }}" class="download-link github-download">View Release on Github</a>

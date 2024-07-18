@@ -1,0 +1,5 @@
+<div id="content"></div>
+<script>
+    document.getElementById('content').innerHTML =
+    marked.parse('{{ file_content }}', {breaks: true});
+</script>
