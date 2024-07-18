@@ -11,3 +11,6 @@ class Version(models.Model):
     
     def __str__(self):
         return self.tag + " - " + self.title
+    
+class Backup(models.Model):
+    backup_time = models.DateTimeField(auto_now_add=True)
