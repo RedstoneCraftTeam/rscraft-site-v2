@@ -10,7 +10,7 @@
         {% if versions %}
             <div class="list-group">
                 {% for version in versions %}
-                    <a href="{% url 'download:release' version.tag %}" class="list-group-item list-group-item-action flex-column align-items-start">
+                    <a href="{% url 'download:release' version.tag %}" class="list-group-item list-group-item-action flex-column align-items-start" name="{{version.tag}}">
                         <div>
                             <h5 class="mb-1 d-inline-block">{{version.tag}}</h5>
                             <strong class="text-primary ms-2">{{version.title}}</strong> <!-- 修改这一行 -->

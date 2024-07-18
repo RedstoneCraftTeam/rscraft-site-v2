@@ -7,8 +7,13 @@
     {{target_ver.description}}
 </p>
 <hr />
+{% if target_ver.github_release %}
+<a href="{{ target_ver.github_release }}" class="download-link github-download">View Release on Github</a>
 <a href="{{ target_ver.github_release }}" class="download-link github-download">Download From Github</a>
+{% endif %}
+{% if target_ver.lanzou_url %}
 <a href="{{ target_ver.lanzou_url }}" class="download-link lanzou-download">Download From Lanzou</a>
+{% endif %}
 {% endblock content %}
 {% block extra_css %}
 <style>

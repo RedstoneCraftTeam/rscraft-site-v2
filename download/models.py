@@ -7,6 +7,7 @@ class Version(models.Model):
     description = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
     github_release = models.URLField()
+    github_download_link = models.URLField()
     lanzou_url = models.URLField()
     
     def __str__(self):
