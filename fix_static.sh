@@ -1,3 +1,3 @@
 # 别乱动
-pip3.9 install -r requirements.txt
-python3.9 manage.py collectstatic --noinput
+pip3.12 install -r requirements.txt
+python3.12 manage.py collectstatic --noinput
