@@ -7,10 +7,7 @@
 <div id="source-code" style="display: none;">{{ target_ver.description | safe}}</div>
 <div id="content"></div>
 {% if target_ver.description %}
-    <script>
-        document.getElementById('content').innerHTML =
-        marked.parse($('#source-code').text(), {breaks: true});
-    </script>
+    {% include "pages/markdown_render.html" %}
 {% else %}
     <div class="alert alert-warning" role="alert">
         No description available.
@@ -29,7 +26,6 @@
 <link rel="stylesheet" href="{% static 'css/release.css' %}">
 {% endblock extra_css %}
 {% block extra_js %}
-<script src="https://cdn.bootcdn.net/ajax/libs/marked/13.0.2/marked.min.js"></script>
 <script>
     document.getElementById('download').classList.add('active');
 </script>
