@@ -10,7 +10,7 @@
       "src": "fix_static.sh",
       "use": "@vercel/static-build",
       "config": {
-        "distDir": "static"
+        "distDir": "staticfiles"
       }
     }
   ],
