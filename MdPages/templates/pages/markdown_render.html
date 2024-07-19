@@ -1,5 +1,7 @@
+<div id="source-code" style="display: none;">{{ file_content | safe}}</div>
 <div id="content"></div>
 <script>
+    var textContent = $('#source-code').text();
     document.getElementById('content').innerHTML =
-    marked.parse('{{ file_content }}', {breaks: true});
+    marked.parse(textContent, {breaks: true});
 </script>
