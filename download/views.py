@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import permission_required
 from .models import Version, Backup
 from . import backup
 import time
@@ -19,3 +20,8 @@ def releases(request):
 def release(request, tag):
     target_ver = Version.objects.get(tag=tag)
     return render(request, 'download/release.html', {'target_ver': target_ver})
+# 只有管理员可以访问
+@permission_required('download.clear_cache')
+def clear_cache(request):
+    Backup.objects.all().delete()
+    return redirect('download:releases')

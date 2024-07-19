@@ -1,4 +1,5 @@
 {% extends "main/base.html" %}
+{% load static %}
 {% block title %}Release - {{target_ver.tag}}{% endblock title %}
 {% block content %}
 <h1> {{target_ver.tag}} {{target_ver.title}}</h1>
@@ -18,44 +19,14 @@
 <hr />
 {% if target_ver.github_release %}
 <a href="{{ target_ver.github_release }}" class="download-link github-download">View Release on Github</a>
-<a href="{{ target_ver.github_release }}" class="download-link github-download">Download From Github</a>
+<a href="{{ target_ver.github_download_link }}" class="download-link github-download">Download From Github</a>
 {% endif %}
 {% if target_ver.lanzou_url %}
 <a href="{{ target_ver.lanzou_url }}" class="download-link lanzou-download">Download From Lanzou</a>
 {% endif %}
 {% endblock content %}
 {% block extra_css %}
-<style>
-    .download-link {
-        display: inline-block;
-        padding: 10px 20px;
-        margin: 5px;
-        font-size: 16px;
-        text-decoration: none;
-        border-radius: 5px;
-        transition: background-color 0.3s ease;
-        //不显示超链接下划线
-        text-decoration: none;
-    }
-    
-    .github-download {
-        background-color: #1d1d1f;
-        color: #fff;
-    }
-    
-    .github-download:hover {
-        background-color: #000000;
-    }
-    
-    .lanzou-download {
-        background-color: #fc3;
-        color: #fff;
-    }
-    
-    .lanzou-download:hover {
-        background-color: #fc0;
-    }
-</style>
+<link rel="stylesheet" href="{% static 'css/release.css' %}">
 {% endblock extra_css %}
 {% block extra_js %}
 <script src="https://cdn.bootcdn.net/ajax/libs/marked/13.0.2/marked.min.js"></script>

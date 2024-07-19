@@ -1,12 +1,15 @@
 import requests
-from .models import Version
+from .models import Version, Backup
 
 def get_release_info():
     url = "https://api.github.com/repos/RedstoneCraftTeam/Redstone_Craft/releases"
-    release_template_url = "https://github.com/RedstoneCraftTeam/Redstone_Craft/releases/tag/%s"
     response = requests.get(url)
     response.encoding = 'utf-8'
     data = response.json()
+    if data is None:
+        return
+    if Backup.objects.count() > 0 and data == Backup.objects.last().api_response:
+        return
     Version.objects.all().delete()
 
     for release in data:
@@ -17,7 +20,7 @@ def get_release_info():
             title=release['name'],
             created_at=release['published_at'],
             description=release['body'],
-            github_release=release_template_url % release['tag_name'],
+            github_release=release['html_url'],
             github_download_link=release['assets'][0]['browser_download_url'],
         )
 

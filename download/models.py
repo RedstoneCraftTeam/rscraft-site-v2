@@ -18,3 +18,4 @@ class Version(models.Model):
     
 class Backup(models.Model):
     backup_time = models.DateTimeField(auto_now_add=True)
+    api_response = models.TextField()
