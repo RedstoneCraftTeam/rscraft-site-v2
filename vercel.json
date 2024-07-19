@@ -1,4 +1,8 @@
 {
+    "builds": [{
+        "src": "rscraftsite_v2/wsgi.py",
+        "use": "@vercel/python",
+    }],
     "routes": [
         {
             "src": "/(.*)",
