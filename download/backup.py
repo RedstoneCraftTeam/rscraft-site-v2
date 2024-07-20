@@ -23,6 +23,8 @@ def get_release_info():
             github_release=release['html_url'],
             github_download_link=release['assets'][0]['browser_download_url'],
         )
+    
+    return response.text
 
 if __name__ == '__main__':
     get_release_info()

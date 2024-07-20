@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import permission_required
 from .models import Version, Backup
+from django.utils import timezone
 from . import backup
 import time
 
@@ -10,7 +11,9 @@ def releases(request):
         backup.get_release_info()
         Backup.objects.create(
             # 创建Backup的时间
-            backup_time=time.localtime()
+            backup_time=timezone.now(),
+            # 获取API响应
+            api_response=backup.get_release_info(),
         )
     versions = Version.objects.all()
     for ver in versions:
