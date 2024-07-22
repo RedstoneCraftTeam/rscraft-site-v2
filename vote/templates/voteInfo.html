@@ -1,0 +1,33 @@
+{% extends "main/base.html" %}
+{% load static %}
+{% block title %}Vote {{}}{% endblock title %}
+{% block content %}
+<div id="source-code" style="display: none;">{{ vote_vts | safe}}</div>
+<div id="content"></div>
+<script>
+    var sc = document.getElementById('source-code').innerHTML;
+    document.getElementById('content') = marked.parse(sc, {'break': true});
+    // 处理投票
+    // Format: ::[type] sth. ::end
+    var vote_re = /::(.*?) (.*?) ::end/g;
+    // 我在看mdn看看怎么解析（好久没碰纯前端了 我永远不想碰前端/运维  
+    const vote_list = document.querySelectorAll('#content>ol>li');
+    vote_list.forEach((val, key) => {
+        // 投票项解析
+        switch(val.innerHTML.match(vote_re)[0]){
+            case '::radio':
+                makeVoteItem(key, val, 0)
+                break
+            case '::checkbox':
+                makeVoteItem(key, val, 1)
+                break
+        }
+    })
+
+    function makeVoteItem(index = 0, element = new Element(), type = 0 | 1){
+        element.setAttribute('data-vote-id', index.toString())
+        const voteAnswers = element.children
+        voteAnswers.
+    }
+</script>
+{% endblock content %}
